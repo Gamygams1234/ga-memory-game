@@ -130,7 +130,7 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
-#game-screen .inner-container .panels {
+#game-screen .inner-container #panels {
   list-style-type: none;
   margin: 0 auto;
   display: -ms-grid;
@@ -144,71 +144,71 @@ body {
   max-width: calc(100vh - 275px);
   min-width: 312px;
 }
-#game-screen .inner-container .panels > *:nth-child(1) {
+#game-screen .inner-container #panels > *:nth-child(1) {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
 }
-#game-screen .inner-container .panels > *:nth-child(2) {
+#game-screen .inner-container #panels > *:nth-child(2) {
   -ms-grid-row: 1;
   -ms-grid-column: 3;
 }
-#game-screen .inner-container .panels > *:nth-child(3) {
+#game-screen .inner-container #panels > *:nth-child(3) {
   -ms-grid-row: 1;
   -ms-grid-column: 5;
 }
-#game-screen .inner-container .panels > *:nth-child(4) {
+#game-screen .inner-container #panels > *:nth-child(4) {
   -ms-grid-row: 1;
   -ms-grid-column: 7;
 }
-#game-screen .inner-container .panels > *:nth-child(5) {
+#game-screen .inner-container #panels > *:nth-child(5) {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
 }
-#game-screen .inner-container .panels > *:nth-child(6) {
+#game-screen .inner-container #panels > *:nth-child(6) {
   -ms-grid-row: 3;
   -ms-grid-column: 3;
 }
-#game-screen .inner-container .panels > *:nth-child(7) {
+#game-screen .inner-container #panels > *:nth-child(7) {
   -ms-grid-row: 3;
   -ms-grid-column: 5;
 }
-#game-screen .inner-container .panels > *:nth-child(8) {
+#game-screen .inner-container #panels > *:nth-child(8) {
   -ms-grid-row: 3;
   -ms-grid-column: 7;
 }
-#game-screen .inner-container .panels > *:nth-child(9) {
+#game-screen .inner-container #panels > *:nth-child(9) {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
 }
-#game-screen .inner-container .panels > *:nth-child(10) {
+#game-screen .inner-container #panels > *:nth-child(10) {
   -ms-grid-row: 5;
   -ms-grid-column: 3;
 }
-#game-screen .inner-container .panels > *:nth-child(11) {
+#game-screen .inner-container #panels > *:nth-child(11) {
   -ms-grid-row: 5;
   -ms-grid-column: 5;
 }
-#game-screen .inner-container .panels > *:nth-child(12) {
+#game-screen .inner-container #panels > *:nth-child(12) {
   -ms-grid-row: 5;
   -ms-grid-column: 7;
 }
-#game-screen .inner-container .panels > *:nth-child(13) {
+#game-screen .inner-container #panels > *:nth-child(13) {
   -ms-grid-row: 7;
   -ms-grid-column: 1;
 }
-#game-screen .inner-container .panels > *:nth-child(14) {
+#game-screen .inner-container #panels > *:nth-child(14) {
   -ms-grid-row: 7;
   -ms-grid-column: 3;
 }
-#game-screen .inner-container .panels > *:nth-child(15) {
+#game-screen .inner-container #panels > *:nth-child(15) {
   -ms-grid-row: 7;
   -ms-grid-column: 5;
 }
-#game-screen .inner-container .panels > *:nth-child(16) {
+#game-screen .inner-container #panels > *:nth-child(16) {
   -ms-grid-row: 7;
   -ms-grid-column: 7;
 }
-#game-screen .inner-container .panels li {
+#game-screen .inner-container #panels li {
   position: relative;
   border-radius: 50%;
   display: block;
@@ -216,7 +216,7 @@ body {
           box-sizing: border-box;
   overflow: hidden;
 }
-#game-screen .inner-container .panels li div {
+#game-screen .inner-container #panels li div {
   width: 100%;
   aspect-ratio: 1/1;
   /* padding: 50% 0; */
@@ -236,23 +236,29 @@ body {
   line-height: 0;
   cursor: pointer;
 }
-#game-screen .inner-container .panels li .front {
+#game-screen .inner-container #panels li .front {
   background-color: #152938;
 }
-#game-screen .inner-container .panels li .back {
+#game-screen .inner-container #panels li .back {
   background-color: #fda214;
 }
-#game-screen .inner-container .panels li .back {
+#game-screen .inner-container #panels li .back {
   -webkit-transform: rotateY(90deg);
           transform: rotateY(90deg);
 }
-#game-screen .inner-container .panels li .front {
+#game-screen .inner-container #panels li .front {
   position: absolute;
 }
-#game-screen .inner-container .panels li.active div.front {
+#game-screen .inner-container #panels li.wrong .back {
+  background-color: hsl(351, 60%, 40%);
+}
+#game-screen .inner-container #panels li.success .back {
+  background-color: #bcced9;
+}
+#game-screen .inner-container #panels li.active div.front {
   -webkit-animation: twirl 0.1s ease-in forwards;
           animation: twirl 0.1s ease-in forwards;
 }
-#game-screen .inner-container .panels li.active div.back {
+#game-screen .inner-container #panels li.active div.back {
   animation: twirl 0.1s 0.1s ease-out forwards reverse;
 }

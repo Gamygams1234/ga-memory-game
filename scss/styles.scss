@@ -1,4 +1,4 @@
-// fonts
+// fonts boiler plate
 .fw-100 {
     font-weight: 100;
 }
@@ -35,7 +35,7 @@
     font-weight: 900;
 }
 
-// animations
+// animations from a previous project 
 @keyframes twirl {
 
     0% {
@@ -127,7 +127,7 @@ body {
             padding-top: 1rem;
             padding-bottom: 1rem;
         }
-        .panels{
+        #panels{
             list-style-type: none;
             margin: 0 auto;
             display: grid;
@@ -179,6 +179,20 @@ body {
                     position: absolute;
                 }
             }
+            li.wrong {
+                .back {
+                    background-color: hsl(351, 60%, 40%);
+                }
+
+            }
+
+            li.success {
+
+                .back {
+                    background-color: $lightGreyBlue;
+                }
+            }
+
             
             li.active {
                 div.front {
