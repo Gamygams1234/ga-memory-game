@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
@@ -19,21 +18,55 @@
 
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/styles.css" />
-</head>
-<body>
-    
+  </head>
+  <body>
     <div id="game-screen" class="outside-container">
-        <div class="inner-container">
-            <header>
-              <h2 class="fw-700">memory</h2>
-            </header>
-            <div class="game-grid">
-              <ul id="panels" class="panels"></ul>
-            </div>
+      <div class="inner-container">
+        <header>
+          <h2 class="fw-700">memory</h2>
+        </header>
+        <div class="game-grid">
+          <ul id="panels" class="panels"></ul>
         </div>
+        <footer id="single-player-footer">
+            <div class="single-player-container">
+              <div class="single-player-stat" id="time-indicator">
+                <div class="single-player-stat-key">Time</div>
+                <div id="player-one-time" class="single-player-stat-value">00:00</div>
+              </div>
+  
+              <div class="single-player-stat" id="player-one-moves">
+                <div class="single-player-stat-key">Moves</div>
+                <div id="player-one-moves-score" class="single-player-stat-value">0</div>
+              </div>
+            </div>
+          </footer>
+      </div>
+    </div>
+    <div id="end-screen" class="outside-container">
+        <div id="single-player-end" class="inner-container">
+          <div class="card">
+            <h2>You did it!</h2>
+            <p>Game over! Here's how you got on...</p>
+            <div class="result">
+              <div class="item">
+                <div class="label">Time Elapsed</div>
+                <div class="result-data" id="one-player-time-result">1:53</div>
+              </div>
+              <div class="item">
+                <div class="label">Moves Taken</div>
+                <div class="result-data"><span id="one-player-moves-result">39</span>&nbsp;Moves</div>
+              </div>
+            </div>
 
+            <div class="buttons">
+              <button class="restart-btn orange-btn btn">Restart</button>
+              <button class="new-game-btn grey-btn btn">Setup New Game</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
