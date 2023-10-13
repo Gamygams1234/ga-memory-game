@@ -295,7 +295,7 @@ body {
     background: rgba(128, 128, 128, 0.7);
 
     #single-player-end,
-    #multi-player-end {
+    #multi-player-end, #single-player-lose{
        display: none;
         justify-content: center;
         align-items: center;
@@ -304,7 +304,7 @@ body {
         max-width: none;
         min-height: 100vh;
 
-        .card {
+        .card{
             width: 100%;
             padding: 1.5rem;
             background-color: #fcfcfc;

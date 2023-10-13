@@ -8,6 +8,7 @@ const playerOneMovesScore = document.getElementById("player-one-moves-score")
 
 const endScreen = document.getElementById("end-screen")
 const singleEndScreen = document.getElementById("single-player-end")
+const singleLoseScreen = document.getElementById("single-player-lose")
 
 let numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7];
 
@@ -76,6 +77,12 @@ function startGame() {
         });
       }
       guesses.length = 0;
+
+      if (moves >=30){
+        endScreen.style.display = "block"
+        singleLoseScreen.style.display = "flex"
+
+      }
     }
   }
   document.querySelectorAll(".clickable").forEach((item) => {

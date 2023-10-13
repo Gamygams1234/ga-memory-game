@@ -342,7 +342,7 @@ body {
   background: rgba(128, 128, 128, 0.7);
 }
 #end-screen #single-player-end,
-#end-screen #multi-player-end {
+#end-screen #multi-player-end, #end-screen #single-player-lose {
   display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -356,7 +356,7 @@ body {
   min-height: 100vh;
 }
 #end-screen #single-player-end .card,
-#end-screen #multi-player-end .card {
+#end-screen #multi-player-end .card, #end-screen #single-player-lose .card {
   width: 100%;
   padding: 1.5rem;
   background-color: #fcfcfc;
@@ -378,23 +378,23 @@ body {
   text-align: center;
 }
 #end-screen #single-player-end .card h2,
-#end-screen #multi-player-end .card h2 {
+#end-screen #multi-player-end .card h2, #end-screen #single-player-lose .card h2 {
   font-size: 2rem;
   color: #152938;
   margin-bottom: 0.8rem;
 }
 #end-screen #single-player-end .card p,
-#end-screen #multi-player-end .card p {
+#end-screen #multi-player-end .card p, #end-screen #single-player-lose .card p {
   color: #7191a5;
   margin-bottom: 1.75rem;
 }
 #end-screen #single-player-end .card .result,
-#end-screen #multi-player-end .card .result {
+#end-screen #multi-player-end .card .result, #end-screen #single-player-lose .card .result {
   width: 100%;
   margin-bottom: 1.5rem;
 }
 #end-screen #single-player-end .card .result .item,
-#end-screen #multi-player-end .card .result .item {
+#end-screen #multi-player-end .card .result .item, #end-screen #single-player-lose .card .result .item {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -409,33 +409,33 @@ body {
   background-color: #DFE7EC;
 }
 #end-screen #single-player-end .card .result .item .label,
-#end-screen #multi-player-end .card .result .item .label {
+#end-screen #multi-player-end .card .result .item .label, #end-screen #single-player-lose .card .result .item .label {
   color: #7191a5;
 }
 #end-screen #single-player-end .card .result .item .result-data,
-#end-screen #multi-player-end .card .result .item .result-data {
+#end-screen #multi-player-end .card .result .item .result-data, #end-screen #single-player-lose .card .result .item .result-data {
   color: #152938;
   font-size: 1.25rem;
 }
 #end-screen #single-player-end .card .result .item.winner,
-#end-screen #multi-player-end .card .result .item.winner {
+#end-screen #multi-player-end .card .result .item.winner, #end-screen #single-player-lose .card .result .item.winner {
   background-color: #152938;
 }
 #end-screen #single-player-end .card .result .item.winner .label,
-#end-screen #multi-player-end .card .result .item.winner .label {
+#end-screen #multi-player-end .card .result .item.winner .label, #end-screen #single-player-lose .card .result .item.winner .label {
   color: #fcfcfc;
 }
 #end-screen #single-player-end .card .result .item.winner .result-data,
-#end-screen #multi-player-end .card .result .item.winner .result-data {
+#end-screen #multi-player-end .card .result .item.winner .result-data, #end-screen #single-player-lose .card .result .item.winner .result-data {
   color: #fcfcfc;
   font-size: 1.25rem;
 }
 #end-screen #single-player-end .card .result .item:not(:last-child),
-#end-screen #multi-player-end .card .result .item:not(:last-child) {
+#end-screen #multi-player-end .card .result .item:not(:last-child), #end-screen #single-player-lose .card .result .item:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 #end-screen #single-player-end .card .buttons,
-#end-screen #multi-player-end .card .buttons {
+#end-screen #multi-player-end .card .buttons, #end-screen #single-player-lose .card .buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -446,11 +446,11 @@ body {
   width: 100%;
 }
 #end-screen #single-player-end .card .buttons button:first-child,
-#end-screen #multi-player-end .card .buttons button:first-child {
+#end-screen #multi-player-end .card .buttons button:first-child, #end-screen #single-player-lose .card .buttons button:first-child {
   margin-bottom: 1rem;
 }
 #end-screen #single-player-end .card .buttons button,
-#end-screen #multi-player-end .card .buttons button {
+#end-screen #multi-player-end .card .buttons button, #end-screen #single-player-lose .card .buttons button {
   width: 100%;
 }
 
