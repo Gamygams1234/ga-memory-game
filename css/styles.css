@@ -114,6 +114,98 @@ body {
   margin: 0 auto;
 }
 
+#start-game-screen {
+  background-color: #152938;
+  color: #fcfcfc;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#start-game-screen .inner-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#start-game-screen .inner-container h1 {
+  margin-bottom: 2rem;
+}
+#start-game-screen .inner-container .card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem;
+  background-color: #fcfcfc;
+  border-radius: 2rem;
+  width: 100%;
+  max-width: 654px;
+  color: #7191a5;
+}
+#start-game-screen .inner-container .card .group-selection {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+#start-game-screen .inner-container .card .group-selection .label {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+#start-game-screen .inner-container .card .group-selection .selections {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+#start-game-screen .inner-container .card .group-selection .selections .btn {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}
+#start-game-screen .inner-container .card .group-selection .selections .btn:first-child {
+  margin-left: 0rem;
+}
+#start-game-screen .inner-container .card .group-selection .selections .btn:last-child {
+  margin-right: 0rem;
+}
+#start-game-screen .inner-container .card .group-selection:last-child {
+  margin-bottom: 0;
+}
+
 #game-screen {
   background-color: #fcfcfc;
   color: #152938;

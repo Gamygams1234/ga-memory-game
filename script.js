@@ -10,7 +10,24 @@ const endScreen = document.getElementById("end-screen")
 const singleEndScreen = document.getElementById("single-player-end")
 const singleLoseScreen = document.getElementById("single-player-lose")
 
-let numbersArray = [0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7];
+
+let gameDetails = {
+  theme: "numbers",
+  players: 1,
+  gridSize: 4,
+};
+
+let gameSelections = {
+  numbers: {
+    4: [0, 1, 2, 3, 4, 5, 6, 7, 0, 1, 2, 3, 4, 5, 6, 7],
+    6: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+  },
+  icons: {
+    4: ["bolt", "car", "ghost", "wine-glass", "mug-hot", "train", "yin-yang", "snowman", "bolt", "car", "ghost", "wine-glass", "mug-hot", "train", "yin-yang", "snowman"],
+    6: ["bolt", "car", "ghost", "wine-glass", "mug-hot", "train", "yin-yang", "snowman", "bolt", "car", "ghost", "wine-glass", "mug-hot", "train", "yin-yang", "snowman", "thumbtack", "tag", "anchor", "phone", "star", "music", "bomb", "book", "thumbtack", "tag", "anchor", "phone", "star", "music", "bomb", "book", "fish", "fish", "bug", "bug"],
+  },
+};
+
 
 // this is to suffle any array that comes our way
 const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
@@ -19,7 +36,7 @@ function startGame() {
   let guesses = [];
   let moves = 0;
   let currentPlayer = 1;
-  let playingArray = numbersArray;
+  let playingArray = gameSelections[gameDetails.theme][gameDetails.gridSize];
   let correctGuesses = 0; 
   let seconds = 0;
 

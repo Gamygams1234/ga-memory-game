@@ -126,6 +126,85 @@ body {
     margin: 0 auto;
 }
 
+
+
+#start-game-screen {
+    background-color: $darkNavyBlue;
+    color: $white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .inner-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: $white;
+            border-radius: 2rem;
+            width: 100%;
+            max-width: 654px;
+            color: $darkerGreyBlue;
+
+            .group-selection {
+                width: 100%;
+                margin-bottom: 2rem;
+
+                .label {
+                    width: 100%;
+                    text-align: left;
+                    margin-bottom: 1rem;
+                    font-size: 1.5rem;
+                }
+
+                .selections {
+                    display: flex;
+                    width: 100%;
+
+                    .btn {
+                        flex-grow: 1;
+                        margin-left: .5rem;
+                        margin-right: .5rem;
+                        font-size: 1.5rem;
+                    }
+
+                    .btn:first-child {
+                        margin-left: 0rem;
+                    }
+
+                    .btn:last-child {
+                        margin-right: 0rem;
+                    }
+                }
+            }
+
+            .group-selection:last-child {
+                margin-bottom: 0;
+            }
+
+
+        }
+
+
+
+    }
+}
+
+
 #game-screen {
     background-color: $white;
     color: $darkNavyBlue;

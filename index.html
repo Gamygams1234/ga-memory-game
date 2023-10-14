@@ -19,6 +19,44 @@
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+
+    <div id="start-game-screen" class="outside-container">
+        <div class="inner-container">
+          <h1 class="fw-700">memory</h1>
+          <div class="card">
+            <div class="group-selection">
+              <div class="label">Select Theme</div>
+              <div id="icon-selections" class="desktop-menu selections">
+                <button class="selected icon-btn btn menu-btn" data-selection="numbers">Numbers</button>
+                <button class="btn icon-btn menu-btn" data-selection="icons">Icons</button>
+              </div>
+            </div>
+            <div class="group-selection">
+              <div class="label">Number of Players</div>
+              <div id="player-number-selections" class="selections">
+                <button class="selected btn player-btn menu-btn" data-selection="1">1</button>
+                <button class="btn player-btn menu-btn" data-selection="2">2</button>
+                <button class="btn player-btn menu-btn" data-selection="3">3</button>
+                <button class="btn player-btn menu-btn" data-selection="4">4</button>
+              </div>
+            </div>
+            <div class="group-selection">
+              <div class="label">Grid Size</div>
+              <div id="grid-selections" class="selections">
+                <button class="selected grid-btn btn menu-btn" data-selection="4">4x4</button>
+                <button class="btn grid-btn menu-btn" data-selection="6">6x6</button>
+              </div>
+            </div>
+            <div class="group-selection">
+              <div class="selections">
+                <button id="start-game-btn" class="btn orange-btn">Start Game</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
     <div id="game-screen" class="outside-container">
       <div class="inner-container">
         <header>
