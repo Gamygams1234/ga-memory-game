@@ -210,7 +210,7 @@ body {
   background-color: #fcfcfc;
   color: #152938;
   min-height: 100vh;
-  display: block;
+  display: none;
 }
 #game-screen .inner-container {
   display: -webkit-box;
@@ -221,7 +221,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  min-height: 100vh;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -352,17 +351,10 @@ body {
 #game-screen .inner-container .panels li .back {
   background-color: #fda214;
 }
-#game-screen .inner-container .panels li .back {
-  -webkit-transform: rotateY(90deg);
-          transform: rotateY(90deg);
-}
-#game-screen .inner-container .panels li .front {
-  position: absolute;
-}
-#game-screen .inner-container .panels li.wrong .back {
+#game-screen .inner-container .panels .wrong .back {
   background-color: hsl(351, 60%, 40%);
 }
-#game-screen .inner-container .panels li.success .back {
+#game-screen .inner-container .panels .success .back {
   background-color: #bcced9;
 }
 #game-screen .inner-container .panels li.active div.front {
@@ -372,13 +364,389 @@ body {
 #game-screen .inner-container .panels li.active div.back {
   animation: twirl 0.1s 0.1s ease-out forwards reverse;
 }
-
-#single-player-footer {
+#game-screen .inner-container .panels .back {
+  -webkit-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+}
+#game-screen .inner-container .panels .front {
+  position: absolute;
+}
+#game-screen .inner-container .six-panels {
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+#game-screen .inner-container .six-panels > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+#game-screen .inner-container .six-panels > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+}
+#game-screen .inner-container .six-panels > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+#game-screen .inner-container .six-panels > *:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+}
+#game-screen .inner-container .six-panels > *:nth-child(5) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+#game-screen .inner-container .six-panels > *:nth-child(6) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+}
+#game-screen .inner-container .six-panels > *:nth-child(7) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+}
+#game-screen .inner-container .six-panels > *:nth-child(8) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+}
+#game-screen .inner-container .six-panels > *:nth-child(9) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+}
+#game-screen .inner-container .six-panels > *:nth-child(10) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 4;
+}
+#game-screen .inner-container .six-panels > *:nth-child(11) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 5;
+}
+#game-screen .inner-container .six-panels > *:nth-child(12) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 6;
+}
+#game-screen .inner-container .six-panels > *:nth-child(13) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+#game-screen .inner-container .six-panels > *:nth-child(14) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+}
+#game-screen .inner-container .six-panels > *:nth-child(15) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+}
+#game-screen .inner-container .six-panels > *:nth-child(16) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 4;
+}
+#game-screen .inner-container .six-panels > *:nth-child(17) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 5;
+}
+#game-screen .inner-container .six-panels > *:nth-child(18) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 6;
+}
+#game-screen .inner-container .six-panels > *:nth-child(19) {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+}
+#game-screen .inner-container .six-panels > *:nth-child(20) {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+}
+#game-screen .inner-container .six-panels > *:nth-child(21) {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+}
+#game-screen .inner-container .six-panels > *:nth-child(22) {
+  -ms-grid-row: 4;
+  -ms-grid-column: 4;
+}
+#game-screen .inner-container .six-panels > *:nth-child(23) {
+  -ms-grid-row: 4;
+  -ms-grid-column: 5;
+}
+#game-screen .inner-container .six-panels > *:nth-child(24) {
+  -ms-grid-row: 4;
+  -ms-grid-column: 6;
+}
+#game-screen .inner-container .six-panels > *:nth-child(25) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+}
+#game-screen .inner-container .six-panels > *:nth-child(26) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+}
+#game-screen .inner-container .six-panels > *:nth-child(27) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+}
+#game-screen .inner-container .six-panels > *:nth-child(28) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 4;
+}
+#game-screen .inner-container .six-panels > *:nth-child(29) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 5;
+}
+#game-screen .inner-container .six-panels > *:nth-child(30) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 6;
+}
+#game-screen .inner-container .six-panels > *:nth-child(31) {
+  -ms-grid-row: 6;
+  -ms-grid-column: 1;
+}
+#game-screen .inner-container .six-panels > *:nth-child(32) {
+  -ms-grid-row: 6;
+  -ms-grid-column: 2;
+}
+#game-screen .inner-container .six-panels > *:nth-child(33) {
+  -ms-grid-row: 6;
+  -ms-grid-column: 3;
+}
+#game-screen .inner-container .six-panels > *:nth-child(34) {
+  -ms-grid-row: 6;
+  -ms-grid-column: 4;
+}
+#game-screen .inner-container .six-panels > *:nth-child(35) {
+  -ms-grid-row: 6;
+  -ms-grid-column: 5;
+}
+#game-screen .inner-container .six-panels > *:nth-child(36) {
+  -ms-grid-row: 6;
+  -ms-grid-column: 6;
+}
+#game-screen .inner-container .six-panels li div {
+  font-size: 1.25rem;
+}
+#game-screen .inner-container #single-player-footer {
+  display: none;
+}
+#game-screen .inner-container #multi-player-footer {
+  display: none;
+}
+#game-screen #menu-modal {
+  position: absolute;
+  background: hsla(0, 0%, 50%, 0.7);
+  left: 0;
+  height: 100vh;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem;
+  z-index: 1;
+}
+#game-screen #menu-modal .card {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #fcfcfc;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 1rem;
 }
-#single-player-footer .single-player-container {
+#game-screen #menu-modal .card button:not(:last-child) {
+  margin-bottom: 1rem;
+}
+#game-screen #single-player-end, #game-screen #multi-player-end,
+#game-screen #single-player-lose {
+  position: absolute;
+  background: rgba(128, 128, 128, 0.7);
+  left: 0;
+  height: 100%;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1.5rem;
+  z-index: 1;
+  max-width: none;
+}
+#game-screen #single-player-end .card, #game-screen #multi-player-end .card,
+#game-screen #single-player-lose .card {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #fcfcfc;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 1rem;
+  max-width: 654px;
+  text-align: center;
+}
+#game-screen #single-player-end .card h2, #game-screen #multi-player-end .card h2,
+#game-screen #single-player-lose .card h2 {
+  font-size: 2rem;
+  color: #152938;
+  margin-bottom: 0.8rem;
+}
+#game-screen #single-player-end .card p, #game-screen #multi-player-end .card p,
+#game-screen #single-player-lose .card p {
+  color: #7191a5;
+  margin-bottom: 1.75rem;
+}
+#game-screen #single-player-end .card .result, #game-screen #multi-player-end .card .result,
+#game-screen #single-player-lose .card .result {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+#game-screen #single-player-end .card .result .item, #game-screen #multi-player-end .card .result .item,
+#game-screen #single-player-lose .card .result .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1.25rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 0.5rem;
+  background-color: #DFE7EC;
+}
+#game-screen #single-player-end .card .result .item .label, #game-screen #multi-player-end .card .result .item .label,
+#game-screen #single-player-lose .card .result .item .label {
+  color: #7191a5;
+}
+#game-screen #single-player-end .card .result .item .result-data, #game-screen #multi-player-end .card .result .item .result-data,
+#game-screen #single-player-lose .card .result .item .result-data {
+  color: #152938;
+  font-size: 1.25rem;
+}
+#game-screen #single-player-end .card .result .item.winner, #game-screen #multi-player-end .card .result .item.winner,
+#game-screen #single-player-lose .card .result .item.winner {
+  background-color: #152938;
+}
+#game-screen #single-player-end .card .result .item.winner .label, #game-screen #multi-player-end .card .result .item.winner .label,
+#game-screen #single-player-lose .card .result .item.winner .label {
+  color: #fcfcfc;
+}
+#game-screen #single-player-end .card .result .item.winner .result-data, #game-screen #multi-player-end .card .result .item.winner .result-data,
+#game-screen #single-player-lose .card .result .item.winner .result-data {
+  color: #fcfcfc;
+  font-size: 1.25rem;
+}
+#game-screen #single-player-end .card .result .item:not(:last-child), #game-screen #multi-player-end .card .result .item:not(:last-child),
+#game-screen #single-player-lose .card .result .item:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+#game-screen #single-player-end .card .buttons, #game-screen #multi-player-end .card .buttons,
+#game-screen #single-player-lose .card .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+#game-screen #single-player-end .card .buttons button:first-child, #game-screen #multi-player-end .card .buttons button:first-child,
+#game-screen #single-player-lose .card .buttons button:first-child {
+  margin-bottom: 1rem;
+}
+#game-screen #single-player-end .card .buttons button, #game-screen #multi-player-end .card .buttons button,
+#game-screen #single-player-lose .card .buttons button {
+  width: 100%;
+}
+#game-screen #multi-player-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+}
+#game-screen #multi-player-footer .multi-player-stat {
+  position: relative;
+  background-color: #DFE7EC;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+  border-radius: 1rem;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+#game-screen #multi-player-footer .multi-player-stat .desktop {
+  display: none;
+}
+#game-screen #multi-player-footer .multi-player-stat .mobile {
+  display: block;
+}
+#game-screen #multi-player-footer .multi-player-stat .multi-player-stat-key {
+  color: #7191a5;
+  margin-bottom: 0.5rem;
+}
+#game-screen #multi-player-footer .multi-player-stat .multi-player-stat-value {
+  color: #304859;
+  font-size: 2rem;
+}
+#game-screen #multi-player-footer .multi-player-stat.active {
+  background-color: #fda214;
+}
+#game-screen #multi-player-footer .multi-player-stat.active .multi-player-stat-key {
+  color: #fcfcfc;
+}
+#game-screen #multi-player-footer .multi-player-stat.active .multi-player-stat-value {
+  color: #fcfcfc;
+}
+#game-screen #multi-player-footer .multi-player-stat.active::before {
+  content: "";
+  border-left: 15px solid transparent;
+  border-bottom: 15px solid #fda214;
+  border-right: 15px solid transparent;
+  position: absolute;
+  top: -14px;
+  left: calc(50% - 15px);
+}
+#game-screen #multi-player-footer .multi-player-stat:first-child {
+  margin-left: 0;
+}
+#game-screen #multi-player-footer .multi-player-stat:last-child {
+  margin-right: 0;
+}
+#game-screen #single-player-footer .single-player-container {
   max-width: 540px;
   margin: 0 auto;
   width: 100%;
@@ -391,7 +759,7 @@ body {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
-#single-player-footer .single-player-container .single-player-stat {
+#game-screen #single-player-footer .single-player-container .single-player-stat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -414,140 +782,40 @@ body {
           justify-content: space-between;
   padding: 1.25rem;
 }
-#single-player-footer .single-player-container .single-player-stat .single-player-stat-key {
+#game-screen #single-player-footer .single-player-container .single-player-stat .single-player-stat-key {
   color: #7191a5;
   margin-bottom: 0.5rem;
 }
-#single-player-footer .single-player-container .single-player-stat .single-player-stat-value {
+#game-screen #single-player-footer .single-player-container .single-player-stat .single-player-stat-value {
   color: #304859;
   font-size: 2rem;
 }
 
-#end-screen {
-  width: 100%;
-  min-height: 100vh;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 0;
+.header-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header-menu button {
+  margin-left: 1rem;
+}
+
+.mobile-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.desktop-menu {
   display: none;
-  background: rgba(128, 128, 128, 0.7);
-}
-#end-screen #single-player-end,
-#end-screen #multi-player-end, #end-screen #single-player-lose {
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 1.5rem;
-  z-index: 1;
-  max-width: none;
-  min-height: 100vh;
-}
-#end-screen #single-player-end .card,
-#end-screen #multi-player-end .card, #end-screen #single-player-lose .card {
-  width: 100%;
-  padding: 1.5rem;
-  background-color: #fcfcfc;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border-radius: 1rem;
-  max-width: 654px;
-  text-align: center;
-}
-#end-screen #single-player-end .card h2,
-#end-screen #multi-player-end .card h2, #end-screen #single-player-lose .card h2 {
-  font-size: 2rem;
-  color: #152938;
-  margin-bottom: 0.8rem;
-}
-#end-screen #single-player-end .card p,
-#end-screen #multi-player-end .card p, #end-screen #single-player-lose .card p {
-  color: #7191a5;
-  margin-bottom: 1.75rem;
-}
-#end-screen #single-player-end .card .result,
-#end-screen #multi-player-end .card .result, #end-screen #single-player-lose .card .result {
-  width: 100%;
-  margin-bottom: 1.5rem;
-}
-#end-screen #single-player-end .card .result .item,
-#end-screen #multi-player-end .card .result .item, #end-screen #single-player-lose .card .result .item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1.25rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 0.5rem;
-  background-color: #DFE7EC;
-}
-#end-screen #single-player-end .card .result .item .label,
-#end-screen #multi-player-end .card .result .item .label, #end-screen #single-player-lose .card .result .item .label {
-  color: #7191a5;
-}
-#end-screen #single-player-end .card .result .item .result-data,
-#end-screen #multi-player-end .card .result .item .result-data, #end-screen #single-player-lose .card .result .item .result-data {
-  color: #152938;
-  font-size: 1.25rem;
-}
-#end-screen #single-player-end .card .result .item.winner,
-#end-screen #multi-player-end .card .result .item.winner, #end-screen #single-player-lose .card .result .item.winner {
-  background-color: #152938;
-}
-#end-screen #single-player-end .card .result .item.winner .label,
-#end-screen #multi-player-end .card .result .item.winner .label, #end-screen #single-player-lose .card .result .item.winner .label {
-  color: #fcfcfc;
-}
-#end-screen #single-player-end .card .result .item.winner .result-data,
-#end-screen #multi-player-end .card .result .item.winner .result-data, #end-screen #single-player-lose .card .result .item.winner .result-data {
-  color: #fcfcfc;
-  font-size: 1.25rem;
-}
-#end-screen #single-player-end .card .result .item:not(:last-child),
-#end-screen #multi-player-end .card .result .item:not(:last-child), #end-screen #single-player-lose .card .result .item:not(:last-child) {
-  margin-bottom: 0.5rem;
-}
-#end-screen #single-player-end .card .buttons,
-#end-screen #multi-player-end .card .buttons, #end-screen #single-player-lose .card .buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-}
-#end-screen #single-player-end .card .buttons button:first-child,
-#end-screen #multi-player-end .card .buttons button:first-child, #end-screen #single-player-lose .card .buttons button:first-child {
-  margin-bottom: 1rem;
-}
-#end-screen #single-player-end .card .buttons button,
-#end-screen #multi-player-end .card .buttons button, #end-screen #single-player-lose .card .buttons button {
-  width: 100%;
 }
 
 @media (min-width: 576px) {
-  #single-player-footer .single-player-container {
+  .outside-container {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  #game-screen #single-player-footer .single-player-container {
     max-width: 540px;
     margin: 0 auto;
     width: 100%;
@@ -558,7 +826,7 @@ body {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  #single-player-footer .single-player-container .single-player-stat {
+  #game-screen #single-player-footer .single-player-container .single-player-stat {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -576,12 +844,180 @@ body {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  #single-player-footer .single-player-container .single-player-stat .single-player-stat-key {
+  #game-screen #single-player-footer .single-player-container .single-player-stat .single-player-stat-key {
     color: #7191a5;
     margin-bottom: 0;
   }
-  #single-player-footer .single-player-container .single-player-stat .single-player-stat-value {
+  #game-screen #single-player-footer .single-player-container .single-player-stat .single-player-stat-value {
     color: #304859;
     font-size: 2rem;
+  }
+  #game-screen #single-player-end .card {
+    padding: 3.5rem;
+  }
+  #game-screen #single-player-end .card h2 {
+    font-size: 3.5rem;
+    margin-top: 1.5rem;
+  }
+  #game-screen #single-player-end .card p {
+    margin-bottom: 3.5rem;
+  }
+  #game-screen #single-player-end .card .result {
+    margin-bottom: 3.5rem;
+  }
+  #game-screen #single-player-end .card .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+  }
+  #game-screen #single-player-end .card .buttons button:first-child {
+    margin-bottom: 0rem;
+  }
+  #game-screen #single-player-end .card .buttons button {
+    width: calc(50% - 16px);
+  }
+}
+@media (min-width: 768px) {
+  #start-game-screen {
+    background-color: #152938;
+    color: #fcfcfc;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #start-game-screen .inner-container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #start-game-screen .inner-container .card {
+    padding: 3.5rem;
+    background-color: #fcfcfc;
+    border-radius: 2rem;
+    width: 100%;
+    max-width: 654px;
+    color: #7191a5;
+  }
+  #start-game-screen .inner-container .card .group-selection {
+    width: 100%;
+  }
+  #start-game-screen .inner-container .card .group-selection .label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  #start-game-screen .inner-container .card .group-selection .selections {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+  #start-game-screen .inner-container .card .group-selection .selections .btn {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .desktop-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #game-screen #multi-player-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+  #game-screen #multi-player-footer .multi-player-stat {
+    background-color: #DFE7EC;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 1rem;
+    border-radius: 1rem;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  #game-screen #multi-player-footer .multi-player-stat .desktop {
+    display: block;
+  }
+  #game-screen #multi-player-footer .multi-player-stat .mobile {
+    display: none;
+  }
+  #game-screen #multi-player-footer .multi-player-stat .multi-player-stat-key {
+    color: #7191a5;
+    margin-bottom: 0;
+  }
+  #game-screen #multi-player-footer .multi-player-stat .multi-player-stat-value {
+    color: #304859;
+    font-size: 2rem;
+  }
+  #game-screen #multi-player-footer .multi-player-stat:first-child {
+    margin-left: 0;
+  }
+  #game-screen #multi-player-footer .multi-player-stat:last-child {
+    margin-right: 0;
+  }
+}
+@media (min-width: 992px) {
+  .multi-player-stat.active::after {
+    position: absolute;
+    content: "Current Turn";
+    width: 100%;
+    text-transform: uppercase;
+    color: #152938;
+    left: 0px;
+    bottom: -2rem;
+    text-align: center;
   }
 }

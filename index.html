@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png" />
 
-    <title>Memory game / Concentration</title>
+    <title>Memory game</title>
 
     <!-- this is for our fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,106 +16,166 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
 
+  <body>
     <div id="start-game-screen" class="outside-container">
-        <div class="inner-container">
-          <h1 class="fw-700">memory</h1>
-          <div class="card">
-            <div class="group-selection">
-              <div class="label">Select Theme</div>
-              <div id="icon-selections" class="desktop-menu selections">
-                <button class="selected icon-btn btn menu-btn" data-selection="numbers">Numbers</button>
-                <button class="btn icon-btn menu-btn" data-selection="icons">Icons</button>
-              </div>
+      <div class="inner-container">
+        <h1 class="fw-700">memory</h1>
+        <div class="card">
+          <div class="group-selection">
+            <div class="label">Select Theme</div>
+            <div id="icon-selections" class="desktop-menu selections">
+              <button class="selected icon-btn btn menu-btn" data-selection="numbers">Numbers</button>
+              <button class="btn icon-btn menu-btn" data-selection="icons">Icons</button>
             </div>
-            <div class="group-selection">
-              <div class="label">Number of Players</div>
-              <div id="player-number-selections" class="selections">
-                <button class="selected btn player-btn menu-btn" data-selection="1">1</button>
-                <button class="btn player-btn menu-btn" data-selection="2">2</button>
-                <button class="btn player-btn menu-btn" data-selection="3">3</button>
-                <button class="btn player-btn menu-btn" data-selection="4">4</button>
-              </div>
+          </div>
+          <div class="group-selection">
+            <div class="label">Number of Players</div>
+            <div id="player-number-selections" class="selections">
+              <button class="selected btn player-btn menu-btn" data-selection="1">1</button>
+              <button class="btn player-btn menu-btn" data-selection="2">2</button>
+              <button class="btn player-btn menu-btn" data-selection="3">3</button>
+              <button class="btn player-btn menu-btn" data-selection="4">4</button>
             </div>
-            <div class="group-selection">
-              <div class="label">Grid Size</div>
-              <div id="grid-selections" class="selections">
-                <button class="selected grid-btn btn menu-btn" data-selection="4">4x4</button>
-                <button class="btn grid-btn menu-btn" data-selection="6">6x6</button>
-              </div>
+          </div>
+          <div class="group-selection">
+            <div class="label">Grid Size</div>
+            <div id="grid-selections" class="selections">
+              <button class="selected grid-btn btn menu-btn" data-selection="4">4x4</button>
+              <button class="btn grid-btn menu-btn" data-selection="6">6x6</button>
             </div>
-            <div class="group-selection">
-              <div class="selections">
-                <button id="start-game-btn" class="btn orange-btn">Start Game</button>
-              </div>
+          </div>
+          <div class="group-selection">
+            <div class="selections">
+              <button id="start-game-btn" class="btn orange-btn">Start Game</button>
             </div>
           </div>
         </div>
-      </div>
-
-      
-    <div id="game-screen" class="outside-container">
-      <div class="inner-container">
-        <header>
-          <h2 class="fw-700">memory</h2>
-        </header>
-        <div class="game-grid">
-          <ul id="panels" class="panels"></ul>
-        </div>
-        <footer id="single-player-footer">
-            <div class="single-player-container">
-              <div class="single-player-stat" id="time-indicator">
-                <div class="single-player-stat-key">Time</div>
-                <div id="player-one-time" class="single-player-stat-value">00:00</div>
-              </div>
-  
-              <div class="single-player-stat" id="player-one-moves">
-                <div class="single-player-stat-key">Moves</div>
-                <div id="player-one-moves-score" class="single-player-stat-value">0</div>
-              </div>
-            </div>
-          </footer>
       </div>
     </div>
-    <div id="end-screen" class="outside-container">
-        <div id="single-player-end" class="inner-container">
-          <div class="card">
-            <h2>You did it!</h2>
-            <p>Game over! Here's how you got on...</p>
-            <div class="result">
-              <div class="item">
-                <div class="label">Time Elapsed</div>
-                <div class="result-data" id="one-player-time-result">1:53</div>
-              </div>
-              <div class="item">
-                <div class="label">Moves Taken</div>
-                <div class="result-data"><span id="one-player-moves-result">39</span>&nbsp;Moves</div>
-              </div>
-            </div>
 
-            <div class="buttons">
-              <button class="restart-btn orange-btn btn">Restart</button>
-              <button class="new-game-btn grey-btn btn">Setup New Game</button>
+    <div id="game-screen" class="outside-container">
+      <div id="menu-modal" class="inner-container">
+        <div class="card">
+          <button class="restart-btn orange-btn btn">Restart</button>
+          <button class="new-game-btn grey-btn btn">New Game</button>
+          <button class="resume-game-btn grey-btn btn">Resume Game</button>
+        </div>
+      </div>
+      <div id="single-player-end" class="inner-container">
+        <div class="card">
+          <h2>You did it!</h2>
+          <p>Game over! Here's how you got on...</p>
+          <div class="result">
+            <div class="item">
+              <div class="label">Time Elapsed</div>
+              <div class="result-data" id="one-player-time-result">1:53</div>
+            </div>
+            <div class="item">
+              <div class="label">Moves Taken</div>
+              <div class="result-data"><span id="one-player-moves-result">39</span>&nbsp;Moves</div>
             </div>
           </div>
+
+          <div class="buttons">
+            <button class="restart-btn orange-btn btn">Restart</button>
+            <button class="new-game-btn grey-btn btn">Setup New Game</button>
+          </div>
         </div>
-        <div id="single-player-lose" class="inner-container">
+      </div>
+      <div id="multi-player-end" class="inner-container">
+        <div class="card">
+          <h2 id = "multi-player-result-text">You did it!</h2>
+          <p>Game over! Here are the results...</p>
+          <div class="result" id="multi-player-result">
+            <div class="item">
+              <div class="label">Time Elapsed</div>
+              <div class="result-data" ><span >39</span>&nbsp;Moves</div>
+            </div>
+            <div class="item">
+              <div class="label">Moves Taken</div>
+              <div class="result-data"><span >39</span>&nbsp;Moves</div>
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button class="restart-btn orange-btn btn">Restart</button>
+            <button class="new-game-btn grey-btn btn">Setup New Game</button>
+          </div>
+        </div>
+      </div>
+          <div id="single-player-lose" class="inner-container">
             <div class="card">
-              <h2>You lose!</h2>
-              <p>Good day sir!!!</p>
-  
+              <h2>You lost the game!</h2>
+              
+              <p id ="single-player-lose-text">You exceeded 30 moves for a 4x4 grid!</p>
+              <p>Please try again!</p>
               <div class="buttons">
                 <button class="restart-btn orange-btn btn">Restart</button>
                 <button class="new-game-btn grey-btn btn">Setup New Game</button>
               </div>
             </div>
           </div>
-      </div>
+      
+      <div class="inner-container">
+        <header>
+          <h2 class="fw-700">memory</h2>
+          <div class="mobile-menu header-menu">
+            <button id="menu-game-btn" class="btn orange-btn">Menu</button>
+          </div>
+          <div class="desktop-menu header-menu">
+            <button class="btn restart-btn orange-btn">Restart Game</button>
+            <button class="btn new-game-btn grey-btn">New Game</button>
+          </div>
+        </header>
+        <div class="game-grid">
+          <ul id="panels" class="panels"></ul>
+        </div>
 
-    <script src="script.js"></script>
+        <footer id="single-player-footer">
+          <div class="single-player-container">
+            <div class="single-player-stat" id="time-indicator">
+              <div class="single-player-stat-key">Time</div>
+              <div id="player-one-time" class="single-player-stat-value">00:00</div>
+            </div>
+
+            <div class="single-player-stat" id="player-one-moves">
+              <div class="single-player-stat-key">Moves</div>
+              <div id="player-one-moves-score" class="single-player-stat-value">0</div>
+            </div>
+          </div>
+        </footer>
+        <footer id="multi-player-footer">
+        
+          <div class="multi-player-stat active">
+            <div class="multi-player-stat-key mobile">P&nbsp;<span class="player">1</span> </div>
+            <div class="multi-player-stat-key desktop">Player&nbsp;<span class="player">1</span> </div>
+            <div class="multi-player-stat-value">0</div>
+          </div>
+          <div class="multi-player-stat">
+            <div class="multi-player-stat-key mobile">P&nbsp;<span class="player">1</span> </div>
+            <div class="multi-player-stat-key desktop">Player&nbsp;<span class="player">1</span> </div>
+            <div class="multi-player-stat-value">0</div>
+          </div>
+          <div class="multi-player-stat">
+            <div class="multi-player-stat-key mobile">P&nbsp;<span class="player">1</span> </div>
+            <div class="multi-player-stat-key desktop">Player&nbsp;<span class="player">1</span> </div>
+            <div class="multi-player-stat-value">0</div>
+          </div>
+          <div class="multi-player-stat">
+            <div class="multi-player-stat-key mobile">P&nbsp;<span class="player">1</span> </div>
+            <div class="multi-player-stat-key desktop">Player&nbsp;<span class="player">1</span> </div>
+            <div class="multi-player-stat-value">0</div>
+          </div>
+        </footer>
+      </div>
+    </div>
+</div>
+
+    <script src="./script.js"></script>
   </body>
 </html>
