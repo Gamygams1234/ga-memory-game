@@ -852,20 +852,25 @@ body {
     color: #304859;
     font-size: 2rem;
   }
-  #game-screen #single-player-end .card {
+  #game-screen #single-player-end .card, #game-screen #multi-player-end .card,
+  #game-screen #single-player-lose .card {
     padding: 3.5rem;
   }
-  #game-screen #single-player-end .card h2 {
+  #game-screen #single-player-end .card h2, #game-screen #multi-player-end .card h2,
+  #game-screen #single-player-lose .card h2 {
     font-size: 3.5rem;
     margin-top: 1.5rem;
   }
-  #game-screen #single-player-end .card p {
+  #game-screen #single-player-end .card p, #game-screen #multi-player-end .card p,
+  #game-screen #single-player-lose .card p {
     margin-bottom: 3.5rem;
   }
-  #game-screen #single-player-end .card .result {
+  #game-screen #single-player-end .card .result, #game-screen #multi-player-end .card .result,
+  #game-screen #single-player-lose .card .result {
     margin-bottom: 3.5rem;
   }
-  #game-screen #single-player-end .card .buttons {
+  #game-screen #single-player-end .card .buttons, #game-screen #multi-player-end .card .buttons,
+  #game-screen #single-player-lose .card .buttons {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -878,10 +883,12 @@ body {
             justify-content: space-between;
     width: 100%;
   }
-  #game-screen #single-player-end .card .buttons button:first-child {
+  #game-screen #single-player-end .card .buttons button:first-child, #game-screen #multi-player-end .card .buttons button:first-child,
+  #game-screen #single-player-lose .card .buttons button:first-child {
     margin-bottom: 0rem;
   }
-  #game-screen #single-player-end .card .buttons button {
+  #game-screen #single-player-end .card .buttons button, #game-screen #multi-player-end .card .buttons button,
+  #game-screen #single-player-lose .card .buttons button {
     width: calc(50% - 16px);
   }
 }

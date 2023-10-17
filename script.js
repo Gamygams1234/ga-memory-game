@@ -16,9 +16,11 @@ const singlePlayerEndScreen = document.getElementById("single-player-end");
 const mulitPlayerEndScreen = document.getElementById("multi-player-end");
 const singleLoseScreen = document.getElementById("single-player-lose");
 const singlePlayerLoseText = document.getElementById("single-player-lose-text");
-// indicators
 
-// these are going to get elements by class name
+
+const playerOneTime = document.getElementById("player-one-time")
+const panels = document.getElementById("panels")
+
 
 // arrays for the options
 let gameSelections = {
@@ -97,13 +99,13 @@ function startGame() {
   let theme = gameDetails.theme;
   let win = false;
 
-  document.getElementById("player-one-time").innerHTML = new Date(seconds * 1000).toISOString().slice(14, 19);
+ 
 
   // making a function to add seconds
   function addSeconds() {
     seconds += 1;
     const result = new Date(seconds * 1000).toISOString().slice(14, 19);
-    document.getElementById("player-one-time").innerHTML = result;
+    playerOneTime.innerHTML = result;
   }
 
   // event listeners for the modal and the game functionality
@@ -117,6 +119,7 @@ function startGame() {
     // adding the interval timer whern the players are only one
     var timerInterval = setInterval(addSeconds, 1000);
     // making the score to 0 when the game has restarted and there is only one player
+    playerOneTime.innerHTML = new Date(seconds * 1000).toISOString().slice(14, 19);
     document.getElementById("player-one-moves-score").innerHTML = "0";
   } else {
     let footer = document.getElementById("multi-player-footer");
@@ -134,16 +137,16 @@ function startGame() {
 
   shuffleArray(gameArray);
 
-  document.getElementById("panels").innerHTML = "";
+  panels.innerHTML = "";
 
   // checking what type of grid we have to start
   if (gridSize === 6) {
-    if (!document.getElementById("panels").classList.contains("six-panels")) {
-      document.getElementById("panels").classList.add("six-panels");
+    if (!panels.classList.contains("six-panels")) {
+      panels.classList.add("six-panels");
     }
   } else {
-    if (document.getElementById("panels").classList.contains("six-panels")) {
-      document.getElementById("panels").classList.remove("six-panels");
+    if (panels.classList.contains("six-panels")) {
+      panels.classList.remove("six-panels");
     }
   }
 
@@ -163,7 +166,7 @@ function startGame() {
     gameArray.forEach((num, index) => {
       document.getElementById("panels").insertAdjacentHTML(
         "beforeend",
-        ` <li class="clickable" data-guess="${index}">
+        `<li class="clickable" data-guess="${index}">
       <div class="front" ></div>
       <div class="back" >${num}</div>
     </li>`
@@ -214,7 +217,6 @@ function startGame() {
             let winners = sortedPlayers.filter((item) => {
               return item.score === maxScore;
             });
-            console.log(winners);
 
             if (winners.length === 1) {
               document.getElementById("multi-player-result-text").innerHTML = `Player ${winners[0].player} Wins!`;
@@ -251,7 +253,7 @@ function startGame() {
         
           } else if (moves >= 60 && gridSize === 6) {
             singleLoseScreen.style.display = "flex";
-            singlePlayerLoseText.innerHTML = `You exceeded 30 moves for a 6x6 grid!`
+            singlePlayerLoseText.innerHTML = `You exceeded 60 moves for a 6x6 grid!`
             clearInterval(timerInterval);
           }
         }
@@ -305,7 +307,6 @@ function startGame() {
 // this is the function that handles the guesses
 function makeGuess(num) {
   guesses.push(num);
-
   if (guesses.length === 2) {
     moves += 1;
     if (currentPlayers.length === 1) {
@@ -321,13 +322,14 @@ function makeGuess(num) {
       currentPlayers[currentPlayer - 1].score += 1;
 
       if (currentPlayers.length > 1) {
+        // using the backticks to find the actual players score
         document.getElementById(`player-${currentPlayer}-score`).innerHTML = currentPlayers[currentPlayer - 1].score;
       }
     } else {
       // this is the magic for the wrong ans
       document.querySelectorAll("li.clicked").forEach((item) => {
         item.classList.add("wrong");
-        setTimeout(function () {
+        setTimeout( ()=> {
           item.classList.remove("active");
           item.classList.remove("wrong");
           item.classList.remove("clicked");
@@ -343,7 +345,6 @@ function makeGuess(num) {
         document.querySelectorAll(".multi-player-stat").forEach((item) => {
           item.classList.remove("active");
         });
-        console.log(currentPlayer);
         document.querySelectorAll(".multi-player-stat")[currentPlayer - 1].classList.add("active");
       }
     }
@@ -355,7 +356,6 @@ function makeGuess(num) {
 
 function backToHome() {
   currentPlayers.length = 0;
-  console.log(currentPlayers);
 }
 function restartGame() {
   currentPlayers.length = 0;
