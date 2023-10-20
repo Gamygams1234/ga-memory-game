@@ -17,10 +17,8 @@ const mulitPlayerEndScreen = document.getElementById("multi-player-end");
 const singleLoseScreen = document.getElementById("single-player-lose");
 const singlePlayerLoseText = document.getElementById("single-player-lose-text");
 
-
-const playerOneTime = document.getElementById("player-one-time")
-const panels = document.getElementById("panels")
-
+const playerOneTime = document.getElementById("player-one-time");
+const panels = document.getElementById("panels");
 
 // arrays for the options
 let gameSelections = {
@@ -34,7 +32,9 @@ let gameSelections = {
   },
 };
 
-const shuffleArray = (arr) => arr.sort(() => 0.5 - Math.random());
+function shuffleArray(arr) {
+  arr.sort(() => 0.5 - Math.random());
+}
 
 let gameDetails = {
   theme: "numbers",
@@ -56,8 +56,6 @@ let guesses = [];
 let currentPlayer = 1;
 let moves = 0;
 let totalPoints = 0;
-
-// total points
 
 // we are adding event listeners to the start of the event
 playerSelections?.addEventListener("click", (e) => {
@@ -98,8 +96,6 @@ function startGame() {
   let gameArray = gameSelections[gameDetails.theme][gameDetails.gridSize];
   let theme = gameDetails.theme;
   let win = false;
-
- 
 
   // making a function to add seconds
   function addSeconds() {
@@ -199,7 +195,7 @@ function startGame() {
             singlePlayerEndScreen.style.display = "flex";
             document.getElementById("one-player-time-result").innerHTML = new Date(seconds * 1000).toISOString().slice(14, 19);
             document.getElementById("one-player-moves-result").innerHTML = moves;
-            win = true
+            win = true;
           } else {
             document.getElementById("multi-player-end").style.display = "flex";
             document.getElementById("multi-player-result").innerHTML = "";
@@ -248,12 +244,11 @@ function startGame() {
         if (currentPlayers.length === 1 && win === false) {
           if (moves >= 30 && gridSize === 4) {
             singleLoseScreen.style.display = "flex";
-            singlePlayerLoseText.innerHTML = `You exceeded 30 moves for a 4x4 grid!`
+            singlePlayerLoseText.innerHTML = `You exceeded 30 moves for a 4x4 grid!`;
             clearInterval(timerInterval);
-        
           } else if (moves >= 60 && gridSize === 6) {
             singleLoseScreen.style.display = "flex";
-            singlePlayerLoseText.innerHTML = `You exceeded 60 moves for a 6x6 grid!`
+            singlePlayerLoseText.innerHTML = `You exceeded 60 moves for a 6x6 grid!`;
             clearInterval(timerInterval);
           }
         }
@@ -329,7 +324,7 @@ function makeGuess(num) {
       // this is the magic for the wrong ans
       document.querySelectorAll("li.clicked").forEach((item) => {
         item.classList.add("wrong");
-        setTimeout( ()=> {
+        setTimeout(() => {
           item.classList.remove("active");
           item.classList.remove("wrong");
           item.classList.remove("clicked");

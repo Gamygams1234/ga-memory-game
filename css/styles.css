@@ -202,6 +202,18 @@ body {
 #start-game-screen .inner-container .card .group-selection .selections .btn:last-child {
   margin-right: 0rem;
 }
+#start-game-screen .inner-container .card .group-selection #player-number-selections {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 0.75rem 1fr 0.75rem 1fr 0.75rem 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 0.75rem;
+}
+#start-game-screen .inner-container .card .group-selection #player-number-selections .btn {
+  margin-left: 0rem;
+  margin-right: 0rem;
+  font-size: 1.5rem;
+}
 #start-game-screen .inner-container .card .group-selection:last-child {
   margin-bottom: 0;
 }
@@ -566,7 +578,7 @@ body {
   position: absolute;
   background: rgba(128, 128, 128, 0.7);
   left: 0;
-  height: 100%;
+  min-height: 100%;
   display: none;
   -webkit-box-pack: center;
       -ms-flex-pack: center;

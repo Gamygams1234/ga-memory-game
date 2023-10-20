@@ -197,6 +197,18 @@ body {
                         margin-right: 0rem;
                     }
                 }
+                #player-number-selections{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    grid-gap: .75rem;
+                    .btn {
+                
+                        margin-left: 0rem;
+                        margin-right: 0rem;
+                        font-size: 1.5rem;
+                    }
+
+                }
             }
 
             .group-selection:last-child {
@@ -383,7 +395,7 @@ body {
         position: absolute;
         background: rgba(128, 128, 128, 0.7);
         left: 0;
-        height: 100%;
+        min-height: 100%;
         display: none;
         justify-content: center;
         align-items: center;
