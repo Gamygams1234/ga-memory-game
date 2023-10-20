@@ -155,6 +155,7 @@ function startGame() {
     if (window.innerWidth >= 768) {
       menuModal.style.display = "none";
       if (currentPlayers.length ===1 ){
+        clearInterval(timerInterval);
         timerInterval = setInterval(addSeconds, 1000);
       }
     }
