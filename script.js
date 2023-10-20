@@ -154,6 +154,9 @@ function startGame() {
   window.addEventListener("resize", function () {
     if (window.innerWidth >= 768) {
       menuModal.style.display = "none";
+      if (currentPlayers.length ===1 ){
+        timerInterval = setInterval(addSeconds, 1000);
+      }
     }
   });
 
