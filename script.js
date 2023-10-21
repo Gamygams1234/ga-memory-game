@@ -219,21 +219,21 @@ function startGame() {
               document.getElementById("multi-player-result-text").innerHTML = `It's a tie!`;
             }
 
-            sortedPlayers.forEach((player) => {
-              if (player.score === maxScore) {
+            sortedPlayers.forEach((item) => {
+              if (item.score === maxScore) {
                 document.getElementById("multi-player-result").insertAdjacentHTML(
                   "beforeend",
                   S`<div class="item winner">
-                <div class="label">Player ${player.player} (Winner)</div>
-                <div class="result-data"><span >${player.score}</span>&nbsp;Moves</div>
+                <div class="label">Player ${item.player} (Winner)</div>
+                <div class="result-data"><span >${item.score}</span>&nbsp;Moves</div>
               </div>`
                 );
               } else {
                 document.getElementById("multi-player-result").insertAdjacentHTML(
                   "beforeend",
                   `<div class="item">
-                <div class="label">Player ${player.player}</div>
-                <div class="result-data"><span >${player.score}</span>&nbsp;Moves</div>
+                <div class="label">Player ${item.player}</div>
+                <div class="result-data"><span >${item.score}</span>&nbsp;Moves</div>
               </div>`
                 );
               }
