@@ -223,7 +223,7 @@ function startGame() {
               if (item.score === maxScore) {
                 document.getElementById("multi-player-result").insertAdjacentHTML(
                   "beforeend",
-                  S`<div class="item winner">
+                  `<div class="item winner">
                 <div class="label">Player ${item.player} (Winner)</div>
                 <div class="result-data"><span >${item.score}</span>&nbsp;Moves</div>
               </div>`
