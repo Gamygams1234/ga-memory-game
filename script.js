@@ -1,22 +1,17 @@
 const iconSelections = document.getElementById("icon-selections");
 const playerSelections = document.getElementById("player-number-selections");
 const gridSelections = document.getElementById("grid-selections");
-
 const gameScreen = document.getElementById("game-screen");
 const startGameScreen = document.getElementById("start-game-screen");
-
 const startGameButton = document.getElementById("start-game-btn");
 const menuOpenButton = document.getElementById("menu-game-btn");
-
 const singlePlayerFooter = document.getElementById("single-player-footer");
 const multiPlayerFooter = document.getElementById("multi-player-footer");
-
 const menuModal = document.getElementById("menu-modal");
 const singlePlayerEndScreen = document.getElementById("single-player-end");
 const mulitPlayerEndScreen = document.getElementById("multi-player-end");
 const singleLoseScreen = document.getElementById("single-player-lose");
 const singlePlayerLoseText = document.getElementById("single-player-lose-text");
-
 const playerOneTime = document.getElementById("player-one-time");
 const panels = document.getElementById("panels");
 
@@ -154,7 +149,7 @@ function startGame() {
   window.addEventListener("resize", function () {
     if (window.innerWidth >= 768) {
       menuModal.style.display = "none";
-      if (currentPlayers.length ===1 ){
+      if (currentPlayers.length === 1) {
         clearInterval(timerInterval);
         timerInterval = setInterval(addSeconds, 1000);
       }
@@ -164,7 +159,7 @@ function startGame() {
   // populating the gridboard and adding the event listeners
   if (theme === "numbers") {
     gameArray.forEach((num, index) => {
-      document.getElementById("panels").insertAdjacentHTML(
+      panels.insertAdjacentHTML(
         "beforeend",
         `<li class="clickable" data-guess="${index}">
       <div class="front" ></div>
@@ -204,19 +199,19 @@ function startGame() {
             document.getElementById("multi-player-end").style.display = "flex";
             document.getElementById("multi-player-result").innerHTML = "";
 
+            // getting the winner when the multi player win
             let maxScore = Math.max(
               ...currentPlayers.map((item) => {
                 return item.score;
               })
             );
-
+            let winners = currentPlayers.filter((item) => {
+              return item.score === maxScore;
+            });
             let sortedPlayers = currentPlayers.sort(function (a, b) {
               return b.score - a.score;
             });
-
-            let winners = sortedPlayers.filter((item) => {
-              return item.score === maxScore;
-            });
+          
 
             if (winners.length === 1) {
               document.getElementById("multi-player-result-text").innerHTML = `Player ${winners[0].player} Wins!`;
@@ -224,41 +219,46 @@ function startGame() {
               document.getElementById("multi-player-result-text").innerHTML = `It's a tie!`;
             }
 
-            sortedPlayers.forEach((item) => {
-              if (item.score === maxScore) {
+            sortedPlayers.forEach((player) => {
+              if (player.score === maxScore) {
                 document.getElementById("multi-player-result").insertAdjacentHTML(
                   "beforeend",
-                  `<div class="item winner">
-                <div class="label">Player ${item.player} (Winner)</div>
-                <div class="result-data"><span >${item.score}</span>&nbsp;Moves</div>
+                  S`<div class="item winner">
+                <div class="label">Player ${player.player} (Winner)</div>
+                <div class="result-data"><span >${player.score}</span>&nbsp;Moves</div>
               </div>`
                 );
               } else {
                 document.getElementById("multi-player-result").insertAdjacentHTML(
                   "beforeend",
                   `<div class="item">
-                <div class="label">Player ${item.player}</div>
-                <div class="result-data"><span >${item.score}</span>&nbsp;Moves</div>
+                <div class="label">Player ${player.player}</div>
+                <div class="result-data"><span >${player.score}</span>&nbsp;Moves</div>
               </div>`
                 );
               }
             });
           }
         }
-        if (currentPlayers.length === 1 && win === false) {
-          if (moves >= 30 && gridSize === 4) {
-            singleLoseScreen.style.display = "flex";
-            singlePlayerLoseText.innerHTML = `You exceeded 30 moves for a 4x4 grid!`;
-            clearInterval(timerInterval);
-          } else if (moves >= 60 && gridSize === 6) {
-            singleLoseScreen.style.display = "flex";
-            singlePlayerLoseText.innerHTML = `You exceeded 60 moves for a 6x6 grid!`;
-            clearInterval(timerInterval);
-          }
-        }
+    
+        checkLose()
       }
     });
   });
+
+function checkLose(){
+  if (currentPlayers.length === 1 && win === false) {
+    if (moves >= 30 && gridSize === 4) {
+      singleLoseScreen.style.display = "flex";
+      singlePlayerLoseText.innerHTML = `You exceeded 30 moves for a 4x4 grid!`;
+      clearInterval(timerInterval);
+    } else if (moves >= 60 && gridSize === 6) {
+      singleLoseScreen.style.display = "flex";
+      singlePlayerLoseText.innerHTML = `You exceeded 60 moves for a 6x6 grid!`;
+      clearInterval(timerInterval);
+    }
+  }
+}
 
   newGameButtons.forEach((item) => {
     item.addEventListener("click", (e) => {
@@ -294,13 +294,14 @@ function startGame() {
     });
   });
 
-  // this is placing the footers and
-
-  if (currentPlayers.length > 1) {
-    multiPlayerFooter.style.display = "flex";
-  } else {
-    singlePlayerFooter.style.display = "flex";
+  function setFooter() {
+    if (currentPlayers.length > 1) {
+      multiPlayerFooter.style.display = "flex";
+    } else {
+      singlePlayerFooter.style.display = "flex";
+    }
   }
+  setFooter();
 } // end of start game
 
 // this is the function that handles the guesses
